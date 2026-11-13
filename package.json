@@ -1,0 +1,15 @@
+{
+  "name": "fin-card-chat",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Fin Card Chat (Experience Cloud LWC) and Fin Card Studio (UI Bundle) for Salesforce.",
+  "scripts": {
+    "test:lwc": "sfdx-lwc-jest",
+    "build:studio": "npm ci --prefix force-app/main/default/uiBundles/FinCardStudio && npm run build --prefix force-app/main/default/uiBundles/FinCardStudio",
+    "test:studio": "npm test --prefix force-app/main/default/uiBundles/FinCardStudio -- --run",
+    "scan:secrets": "bash scripts/scan-secrets.sh"
+  },
+  "devDependencies": {
+    "@salesforce/sfdx-lwc-jest": "^7.9.0"
+  }
+}

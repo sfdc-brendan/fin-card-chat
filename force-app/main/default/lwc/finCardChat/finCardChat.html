@@ -1,0 +1,148 @@
+<template>
+    <section class={rootClass} style={rootStyle} aria-label={ariaLabel}>
+        <template lwc:if={hasTurns}>
+            <header class="fin-thread__head">
+                <span class="fin-thread__avatar" aria-hidden="true">{agentInitial}<i class={presenceClass}></i></span>
+                <p class="fin-thread__title">
+                    <strong>{agentName}</strong>
+                    <span>{statusText}</span>
+                </p>
+                <span class="fin-thread__agent-pill">
+                    <span class="fin-thread__agent-dot" aria-hidden="true">
+                        <lightning-icon icon-name="utility:einstein" size="xx-small" alternative-text=""></lightning-icon>
+                    </span>
+                    Fin Agent API
+                </span>
+                <button type="button" class="fin-thread__action" onclick={handleNewChat} title="Start a new chat">
+                    <lightning-icon icon-name="utility:refresh" size="xx-small" alternative-text=""></lightning-icon>
+                    <span>New chat</span>
+                </button>
+            </header>
+
+            <div class="fin-thread__log" role="log" aria-live="polite" lwc:ref="transcript">
+                <template for:each={turnViews} for:item="turn">
+                    <div key={turn.id} class="fin-turn" oncardsend={handleCardSend}>
+                        <p class="fin-turn__question">{turn.userText}</p>
+
+                        <template lwc:if={turn.hasReplies}>
+                            <div class="fin-turn__answer">
+                                <p class="fin-turn__sender">
+                                    {agentName}
+                                    <span class="fin-turn__source">Fin Agent API</span>
+                                </p>
+                                <template for:each={turn.replies} for:item="reply">
+                                    <div key={reply.key} class="fin-turn__text">
+                                        <lightning-formatted-rich-text value={reply.html}></lightning-formatted-rich-text>
+                                    </div>
+                                </template>
+                            </div>
+                        </template>
+
+                        <template lwc:if={turn.isThinking}>
+                            <div class="fin-turn__answer">
+                                <p class="fin-turn__sender">{agentName}</p>
+                                <p class="fin-turn__typing" role="status">
+                                    <span class="fin-turn__dot"></span><span class="fin-turn__dot"></span><span class="fin-turn__dot"></span>
+                                    <span class="slds-assistive-text">{agentName} is typing</span>
+                                </p>
+                            </div>
+                        </template>
+
+                        <template lwc:if={turn.hasCarousel}>
+                            <c-fin-card-carousel cards={turn.carouselCards} label="Suggested products and offers"></c-fin-card-carousel>
+                        </template>
+
+                        <template lwc:if={turn.hasGridCards}>
+                            <div class="fin-turn__cards" role="list" aria-label="Suggested for you">
+                                <template for:each={turn.gridCards} for:item="card">
+                                    <div key={card.id} class={card.slotClass} role="listitem">
+                                        <c-fin-card-renderer card={card}></c-fin-card-renderer>
+                                    </div>
+                                </template>
+                            </div>
+                        </template>
+
+                        <template lwc:if={turn.hasLinks}>
+                            <div class="fin-turn__links">
+                                <p class="fin-turn__links-label" aria-hidden="true">Related guides</p>
+                                <ul aria-label="Related guides">
+                                    <template for:each={turn.links} for:item="link">
+                                        <li key={link.id}>
+                                            <c-fin-card-link card={link}></c-fin-card-link>
+                                        </li>
+                                    </template>
+                                </ul>
+                            </div>
+                        </template>
+
+                        <template lwc:if={turn.hasSources}>
+                            <div class="fin-turn__sources">
+                                <span class="fin-turn__sources-label">Sources</span>
+                                <ul aria-label={sourcesLabel}>
+                                    <template for:each={turn.sources} for:item="source">
+                                        <li key={source.key}>
+                                            <a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}</a>
+                                        </li>
+                                    </template>
+                                </ul>
+                            </div>
+                        </template>
+
+                        <template lwc:if={turn.notice}>
+                            <p class="fin-turn__notice" role="alert">{turn.notice}</p>
+                        </template>
+                    </div>
+                </template>
+            </div>
+        </template>
+        <template lwc:else>
+            <div class="fin-start">
+                <template lwc:if={eyebrow}>
+                    <p class="fin-start__eyebrow">{eyebrow}</p>
+                </template>
+                <h2 class="fin-start__title">
+                    {headline}
+                    <template lwc:if={headlineAccent}>
+                        <span class="fin-start__accent">{headlineAccent}</span>
+                    </template>
+                </h2>
+                <template lwc:if={welcomeMessage}>
+                    <p class="fin-start__lede">{welcomeMessage}</p>
+                </template>
+            </div>
+        </template>
+
+        <div class="fin-composer">
+            <label class="slds-assistive-text" for="fin-chat-input">{placeholder}</label>
+            <textarea
+                id="fin-chat-input"
+                class="fin-composer__input"
+                lwc:ref="input"
+                rows="1"
+                maxlength="2000"
+                placeholder={placeholder}
+                value={draft}
+                oninput={handleInput}
+                onkeydown={handleKeydown}
+            ></textarea>
+            <button type="button" class="fin-composer__send" aria-label="Send" title="Send" disabled={sendDisabled} onclick={handleSend}>
+                <lightning-icon icon-name="utility:arrowup" size="x-small" alternative-text=""></lightning-icon>
+            </button>
+        </div>
+
+        <template lwc:if={showSuggestions}>
+            <div class="fin-start__seeds" aria-label="Suggested questions">
+                <template for:each={suggestionList} for:item="suggestion">
+                    <button key={suggestion.key} type="button" class="fin-start__seed" data-text={suggestion.text} onclick={handleSuggestion}>
+                        <lightning-icon icon-name="utility:sparkles" size="xx-small" alternative-text=""></lightning-icon>
+                        {suggestion.text}
+                    </button>
+                </template>
+            </div>
+        </template>
+
+        <template lwc:if={disclaimer}>
+            <p class="fin-chat__footnote">{disclaimer}</p>
+        </template>
+    </section>
+</template>

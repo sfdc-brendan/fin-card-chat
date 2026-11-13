@@ -1,0 +1,32 @@
+<template>
+    <template lwc:if={target}>
+        <template lwc:if={isUrl}>
+            <a class="fin-link" href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
+                <span class="fin-link__icon" aria-hidden="true">
+                    <lightning-icon icon-name="utility:knowledge_base" size="x-small" alternative-text=""></lightning-icon>
+                </span>
+                <span class="fin-link__text">
+                    <span class="fin-link__title">{card.title}</span>
+                    <template lwc:if={card.subtitle}>
+                        <span class="fin-link__meta">{card.subtitle}</span>
+                    </template>
+                </span>
+                <lightning-icon class="fin-link__go" icon-name={trailingIcon} size="xx-small" alternative-text=""></lightning-icon>
+            </a>
+        </template>
+        <template lwc:else>
+            <button type="button" class="fin-link" onclick={handleAsk} aria-label={label}>
+                <span class="fin-link__icon" aria-hidden="true">
+                    <lightning-icon icon-name="utility:knowledge_base" size="x-small" alternative-text=""></lightning-icon>
+                </span>
+                <span class="fin-link__text">
+                    <span class="fin-link__title">{card.title}</span>
+                    <template lwc:if={card.subtitle}>
+                        <span class="fin-link__meta">{card.subtitle}</span>
+                    </template>
+                </span>
+                <lightning-icon class="fin-link__go" icon-name={trailingIcon} size="xx-small" alternative-text=""></lightning-icon>
+            </button>
+        </template>
+    </template>
+</template>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>67.0</apiVersion>
+    <isExposed>false</isExposed>
+    <description>Swipeable row of Fin product and offer cards with arrows, dots, and keyboard support. Used by finCardChat.</description>
+</LightningComponentBundle>

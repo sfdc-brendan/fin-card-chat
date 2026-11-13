@@ -1,0 +1,68 @@
+{
+  "appPageId": "e4bd7437-87f9-492f-bb9b-cca60c9128dd",
+  "componentName": "siteforce:sldsOneColLayout",
+  "dataProviders": [],
+  "id": "6215afc3-8056-482f-b5e9-60b24cfc4446",
+  "label": "Ask Fin",
+  "regions": [
+    {
+      "id": "a09d1641-a510-4b6b-8d2c-d8db3544cad8",
+      "regionName": "header",
+      "type": "region"
+    },
+    {
+      "components": [
+        {
+          "componentAttributes": {
+            "eyebrow": "StarGrid Support",
+            "headline": "A little guidance.",
+            "headlineAccent": "A clear way forward.",
+            "welcomeMessage": "Ask a question. Fin answers with the products, guides and next steps that fit.",
+            "placeholder": "Ask me anything",
+            "suggestions": "Wi-Fi 7 options; AI workstations; Fiber availability; Amber uplink light; Start a return",
+            "agentName": "Fin",
+            "disclaimer": "AI responses can be inaccurate. Fictional demo company.",
+            "accentColor": "#2855ed",
+            "maxCards": 5,
+            "contentWidth": 1040,
+            "height": 820
+          },
+          "componentName": "c:finCardChat",
+          "id": "f6031c6b-172d-4aad-ad7c-f862fb2ea0c7",
+          "renderPriority": "NEUTRAL",
+          "renditionMap": {},
+          "type": "component"
+        }
+      ],
+      "id": "cad57d4f-0eae-480c-992c-80d6a0f7168c",
+      "regionName": "content",
+      "type": "region"
+    },
+    {
+      "id": "0b27761b-70d6-43b3-a840-b8ae5ab770cb",
+      "regionName": "footer",
+      "type": "region"
+    },
+    {
+      "components": [
+        {
+          "componentAttributes": {
+            "customHeadTags": "",
+            "description": "Chat with Fin, the StarGrid assistant.",
+            "title": "Ask Fin"
+          },
+          "componentName": "forceCommunity:seoAssistant",
+          "id": "c1654e25-4556-49ea-b6c0-3ea6fba7d090",
+          "renditionMap": {},
+          "type": "component"
+        }
+      ],
+      "id": "25748545-b8ed-408b-969d-d0afc7ec9a74",
+      "regionName": "sfdcHiddenRegion",
+      "type": "region"
+    }
+  ],
+  "themeLayoutType": "Inner",
+  "type": "view",
+  "viewType": "custom-ask-fin"
+}

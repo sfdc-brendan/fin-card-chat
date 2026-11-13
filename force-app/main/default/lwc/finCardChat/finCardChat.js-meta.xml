@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>67.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Fin Card Chat</masterLabel>
+    <description>Ask Fin through the Fin Agent API, inline on the page, with product and self-service cards from Fin Card Studio under matching answers.</description>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="eyebrow" type="String" label="Eyebrow" default="Customer Support"/>
+            <property name="headline" type="String" label="Headline" default="A little guidance."/>
+            <property name="headlineAccent" type="String" label="Headline accent line" description="Second headline line, shown in the accent color." default="A clear way forward."/>
+            <property name="welcomeMessage" type="String" label="Intro text" default="Ask a question. Fin answers with the products, guides and next steps that fit."/>
+            <property name="placeholder" type="String" label="Input placeholder" default="Ask me anything"/>
+            <property name="suggestions" type="String" label="Suggested questions" description="Separate with semicolons. Up to 6 show before the first question." default="Compare plans; Track my order; Start a return; Talk to a person"/>
+            <property name="agentName" type="String" label="Agent name" default="Fin"/>
+            <property name="disclaimer" type="String" label="Disclaimer" default="AI responses can be inaccurate."/>
+            <property name="accentColor" type="Color" label="Accent color" default="#2855ed"/>
+            <property name="maxCards" type="Integer" label="Maximum cards per answer" default="5" min="1" max="6"/>
+            <property name="cardSize" type="String" label="Card size" datasource="studio,compact,standard" description="studio follows the Card size set on the Fin Card Studio Display page." default="studio"/>
+            <property name="contentWidth" type="Integer" label="Maximum width (px)" default="1040" min="480" max="1600"/>
+            <property name="height" type="Integer" label="Conversation height (px)" description="Capped at the visible window height." default="820" min="360" max="1400"/>
+        </targetConfig>
+        <targetConfig targets="lightning__AppPage,lightning__HomePage">
+            <property name="eyebrow" type="String" label="Eyebrow" default="Customer Support"/>
+            <property name="headline" type="String" label="Headline" default="A little guidance."/>
+            <property name="headlineAccent" type="String" label="Headline accent line" default="A clear way forward."/>
+            <property name="welcomeMessage" type="String" label="Intro text" default="Ask a question. Fin answers with the products, guides and next steps that fit."/>
+            <property name="placeholder" type="String" label="Input placeholder" default="Ask me anything"/>
+            <property name="suggestions" type="String" label="Suggested questions (separate with semicolons)" default="Compare plans; Track my order; Start a return; Talk to a person"/>
+            <property name="agentName" type="String" label="Agent name" default="Fin"/>
+            <property name="disclaimer" type="String" label="Disclaimer" default="AI responses can be inaccurate."/>
+            <property name="accentColor" type="String" label="Accent color (hex)" default="#2855ed"/>
+            <property name="maxCards" type="Integer" label="Maximum cards per answer" default="5" min="1" max="6"/>
+            <property name="cardSize" type="String" label="Card size" datasource="studio,compact,standard" description="studio follows the Card size set on the Fin Card Studio Display page." default="studio"/>
+            <property name="contentWidth" type="Integer" label="Maximum width (px)" default="1040" min="480" max="1600"/>
+            <property name="height" type="Integer" label="Conversation height (px)" default="820" min="360" max="1400"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

@@ -1,0 +1,13 @@
+<template>
+    <template lwc:if={known}>
+        <lightning-button
+            label={action.label}
+            title={title}
+            variant={variant}
+            icon-name={iconName}
+            icon-position="right"
+            disabled={disabled}
+            onclick={handleClick}
+        ></lightning-button>
+    </template>
+</template>

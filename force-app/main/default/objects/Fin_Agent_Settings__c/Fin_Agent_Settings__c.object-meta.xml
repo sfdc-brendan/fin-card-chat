@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Fin Agent API settings for the Experience Cloud Fin chat. Read only by Apex; no permission set grants field access. Production orgs cannot use Protected visibility outside a managed package, so admins with View Setup can still see the secret.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Fin Agent Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

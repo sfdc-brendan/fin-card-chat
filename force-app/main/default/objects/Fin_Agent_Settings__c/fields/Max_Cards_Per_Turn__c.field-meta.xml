@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Max_Cards_Per_Turn__c</fullName>
+    <defaultValue>5</defaultValue>
+    <description>Most Fin UI Cards matched for one Fin answer, from 1 to 6. Blank uses 5.</description>
+    <label>Max Cards Per Turn</label>
+    <precision>2</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

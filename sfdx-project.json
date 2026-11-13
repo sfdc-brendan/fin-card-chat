@@ -1,0 +1,9 @@
+{
+  "packageDirectories": [
+    { "path": "force-app", "default": true },
+    { "path": "sample-data/stargrid", "default": false }
+  ],
+  "name": "fin-card-chat",
+  "namespace": "",
+  "sourceApiVersion": "67.0"
+}

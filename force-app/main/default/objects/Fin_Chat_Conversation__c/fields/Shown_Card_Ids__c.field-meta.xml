@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Shown_Card_Ids__c</fullName>
+    <description>Comma-separated card IDs already shown in this conversation, so each card appears once.</description>
+    <label>Shown Card Ids</label>
+    <length>4000</length>
+    <type>LongTextArea</type>
+    <visibleLines>2</visibleLines>
+</CustomField>

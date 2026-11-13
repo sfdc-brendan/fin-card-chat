@@ -1,0 +1,43 @@
+<template>
+    <section class="fin-carousel" aria-roledescription="carousel" aria-label={label}>
+        <div
+            class="fin-carousel__track"
+            lwc:ref="track"
+            tabindex="0"
+            aria-label="Cards. Use the left and right arrow keys to browse."
+            onscroll={handleScroll}
+            onkeydown={handleKeydown}
+        >
+            <template for:each={slides} for:item="slide">
+                <div key={slide.key} class={slide.className} role="group" aria-roledescription="slide" aria-label={slide.label}>
+                    <c-fin-card-renderer card={slide.card}></c-fin-card-renderer>
+                </div>
+            </template>
+        </div>
+
+        <template lwc:if={showControls}>
+            <div class="fin-carousel__controls">
+                <button class="fin-carousel__arrow" type="button" aria-label="Previous card" disabled={atStart} onclick={handlePrevious}>
+                    <lightning-icon icon-name="utility:chevronleft" size="x-small" alternative-text=""></lightning-icon>
+                </button>
+                <div class="fin-carousel__dots">
+                    <template for:each={dots} for:item="dot">
+                        <button
+                            key={dot.key}
+                            class={dot.className}
+                            type="button"
+                            data-index={dot.index}
+                            aria-label={dot.label}
+                            aria-current={dot.current}
+                            onclick={handleDot}
+                        ></button>
+                    </template>
+                </div>
+                <button class="fin-carousel__arrow" type="button" aria-label="Next card" disabled={atEnd} onclick={handleNext}>
+                    <lightning-icon icon-name="utility:chevronright" size="x-small" alternative-text=""></lightning-icon>
+                </button>
+                <span class="slds-assistive-text" aria-live="polite">{status}</span>
+            </div>
+        </template>
+    </section>
+</template>

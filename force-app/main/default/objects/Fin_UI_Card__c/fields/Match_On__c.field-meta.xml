@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Match_On__c</fullName>
+    <description>Which side of the conversation the trigger keywords are checked against.</description>
+    <label>Match On</label>
+    <required>true</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value><fullName>Both</fullName><default>true</default><label>Both</label></value>
+            <value><fullName>User_Message</fullName><default>false</default><label>User Message</label></value>
+            <value><fullName>Fin_Reply</fullName><default>false</default><label>Fin Reply</label></value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

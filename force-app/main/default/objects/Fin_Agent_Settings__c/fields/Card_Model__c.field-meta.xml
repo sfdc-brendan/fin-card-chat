@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Card_Model__c</fullName>
+    <description>Models API model name used by Fin Card Studio to draft cards, for example sfdc_ai__DefaultBedrockAnthropicClaude46Sonnet. Blank uses that model.</description>
+    <label>Card Model</label>
+    <length>120</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

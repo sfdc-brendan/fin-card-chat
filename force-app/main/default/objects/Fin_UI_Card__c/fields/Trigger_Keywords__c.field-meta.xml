@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Trigger_Keywords__c</fullName>
+    <description>One phrase per line. A phrase matches as whole words, ignoring case and punctuation.</description>
+    <inlineHelpText>One phrase per line, for example "mesh wifi" or "change my address".</inlineHelpText>
+    <label>Trigger Keywords</label>
+    <length>4000</length>
+    <type>LongTextArea</type>
+    <visibleLines>6</visibleLines>
+</CustomField>

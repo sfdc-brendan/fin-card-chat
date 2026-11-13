@@ -1,0 +1,31 @@
+<template>
+    <div class="fin-search" style={rootStyle}>
+        <div class="fin-search__bar" role="search">
+            <lightning-icon class="fin-search__icon" icon-name="utility:sparkles" size="x-small" alternative-text=""></lightning-icon>
+            <label class="slds-assistive-text" for="fin-search-input">{placeholder}</label>
+            <input
+                id="fin-search-input"
+                class="fin-search__input"
+                lwc:ref="input"
+                type="text"
+                maxlength="2000"
+                autocomplete="off"
+                placeholder={placeholder}
+                value={draft}
+                oninput={handleInput}
+                onkeydown={handleKeydown}
+            />
+            <button type="button" class="fin-search__submit" disabled={submitDisabled} onclick={handleSubmit}>{buttonLabel}</button>
+        </div>
+
+        <template lwc:if={hasSuggestions}>
+            <div class="fin-search__seeds" aria-label="Suggested questions">
+                <template for:each={suggestionList} for:item="suggestion">
+                    <button key={suggestion.key} type="button" class="fin-search__seed" data-text={suggestion.text} onclick={handleSuggestion}>
+                        {suggestion.text}
+                    </button>
+                </template>
+            </div>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,50 @@
+<template>
+    <article class={cardClass} aria-label={card.title}>
+        <template lwc:if={showMedia}>
+            <div class="fin-card__media">
+                <img src={card.imageUrl} alt={imageAlt} loading="lazy" />
+            </div>
+        </template>
+        <div class="fin-card__body">
+            <div class="fin-card__eyebrow">
+                <span class="fin-card__badge">{typeLabel}</span>
+                <template lwc:if={showPrice}>
+                    <span class="fin-card__price">{card.priceLabel}</span>
+                </template>
+            </div>
+            <h3 class="fin-card__title">{card.title}</h3>
+            <template lwc:if={card.subtitle}>
+                <p class="fin-card__subtitle">{card.subtitle}</p>
+            </template>
+            <template lwc:if={card.text}>
+                <p class="fin-card__text">{card.text}</p>
+            </template>
+            <template lwc:if={hasBullets}>
+                <ul class="fin-card__bullets">
+                    <template for:each={bulletItems} for:item="bullet">
+                        <li key={bullet.key}>{bullet.text}</li>
+                    </template>
+                </ul>
+            </template>
+            <template lwc:if={flowDone}>
+                <p class="fin-card__done" role="status">
+                    <lightning-icon icon-name="utility:success" size="x-small" alternative-text=""></lightning-icon>
+                    Done. Thanks!
+                </p>
+            </template>
+            <template lwc:if={flowApiName}>
+                <div class="fin-card__flow">
+                    <lightning-flow flow-api-name={flowApiName} onstatuschange={handleFlowStatus}></lightning-flow>
+                    <lightning-button variant="base" label="Cancel" onclick={closeFlow}></lightning-button>
+                </div>
+            </template>
+            <template lwc:if={hasActions}>
+                <div class="fin-card__actions">
+                    <template for:each={actions} for:item="action">
+                        <c-fin-card-action key={action.role} action={action} oncardflow={handleFlow}></c-fin-card-action>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </article>
+</template>

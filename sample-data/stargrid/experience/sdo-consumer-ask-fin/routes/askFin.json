@@ -1,0 +1,12 @@
+{
+  "activeViewId": "6215afc3-8056-482f-b5e9-60b24cfc4446",
+  "appPageId": "e4bd7437-87f9-492f-bb9b-cca60c9128dd",
+  "configurationTags": [],
+  "devName": "Ask_Fin__c",
+  "id": "18e3294a-fe7d-4e77-a52c-d78e309d6573",
+  "label": "Ask Fin",
+  "pageAccess": "UseParent",
+  "routeType": "custom-ask-fin",
+  "type": "route",
+  "urlPrefix": "ask-fin"
+}

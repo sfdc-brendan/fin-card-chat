@@ -1,0 +1,16 @@
+package.xml
+
+# LWC configuration files
+**/jsconfig.json
+**/.eslintrc.json
+
+# LWC Jest
+**/__tests__/**
+
+node_modules/
+**/node_modules/**
+.DS_Store
+
+# Reference only: Experience Builder page JSON, not deployable metadata
+sample-data/stargrid/experience/**
+sample-data/stargrid/README.md
